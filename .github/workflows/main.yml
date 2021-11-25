@@ -30,7 +30,7 @@ jobs:
             {
               attachments: [{
                 color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
-                text: `${process.env.AS_JOB} 시작 (${process.env.AS_COMMIT}) of ${process.env.AS_REPO}`,
+                text: `✨Start ${process.env.AS_JOB} (${process.env.AS_COMMIT}) of ${process.env.AS_REPO}`,
               }]
             }
         env:
@@ -52,7 +52,7 @@ jobs:
             {
               attachments: [{
                 color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
-                text: `${process.env.AS_JOB} 완료 (${process.env.AS_COMMIT}) of ${process.env.AS_REPO}\n release time elapsed: ${process.env.AS_TOOK}`,
+                text: `✅ complete ${process.env.AS_JOB} (${process.env.AS_COMMIT}) of ${process.env.AS_REPO}\n release time elapsed: ${process.env.AS_TOOK}`,
               }]
             }
         env:
