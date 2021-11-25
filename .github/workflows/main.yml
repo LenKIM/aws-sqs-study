@@ -25,8 +25,8 @@ jobs:
       - uses: 8398a7/action-slack@v3
         with:
           status: ${{ job.status }}
-          text: '배포 시작'
-          author_name: Slack Test # default: 8398a7@action-slack
+          icon_emoji: ':octocat:'
+          author_name: 배포를 시작합니다 
           fields: repo,commit,message,author # default: repo,commit
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }} # required
@@ -41,35 +41,9 @@ jobs:
 
       - uses: 8398a7/action-slack@v3
         with:
-          status: custom
-          custom_payload: |
-            {
-              text: "Custom Field Check",
-              attachments: [{
-                "author_name": "8398a7@action-slack", // json
-                fallback: 'fallback',
-                color: 'good',
-                title: 'CI Result',
-                text: 'Succeeded',
-                fields: [{
-                  title: 'lower case',
-                  value: 'LOWER CASE CHECK'.toLowerCase(),
-                  short: true
-                },
-                {
-                  title: 'reverse',
-                  value: 'gnirts esrever'.split('').reverse().join(''),
-                  short: true
-                },
-                {
-                  title: 'long title1',
-                  value: 'long value1',
-                  short: false
-                }],
-                actions: [{
-                }]
-              }]
-            }
+          status: ${{ job.status }}
+          icon_emoji: ':octocat:'
+          fields: repo,commit,message,author # default: repo,commit
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }} # required
         if: always() # Pick up events even if the job fails or is canceled.
