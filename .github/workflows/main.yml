@@ -45,7 +45,6 @@ jobs:
         run: echo Hello, world!
 
       - uses: 8398a7/action-slack@v3
-
         with:
           status: 'custom'
           fields: workflow,job,commit,repo,ref,author,took
@@ -53,7 +52,7 @@ jobs:
             {
               attachments: [{
                 color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
-                text: `${process.env.AS_JOB} 완료 (${process.env.AS_COMMIT}) of ${process.env.AS_REPO}\n took: ${took}`,
+                text: `${process.env.AS_JOB} 완료 (${process.env.AS_COMMIT}) of ${process.env.AS_REPO}\n release time elapsed: ${{ took }}`,
               }]
             }
         env:
