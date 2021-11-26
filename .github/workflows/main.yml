@@ -53,7 +53,7 @@ jobs:
             {
               attachments: [{
                 color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
-                text: `✅ complete ${process.env.AS_JOB} (${process.env.AS_COMMIT}) of ${process.env.AS_REPO} \nstatus: ${{ job.status }} \n release time elapsed: ${process.env.AS_TOOK}`,
+                text: `✅ complete ${process.env.AS_JOB} (${process.env.AS_COMMIT}) of ${process.env.AS_REPO} \nstatus: ${{ job.status }} \n release time elapsed: ${process.env.AS_TOOK} \n commit message: ${process.env.AS_MESSAGE}`,
               }]
             }
         env:
